@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Art — Cole Calfee</title>
+  <meta name="description" content="A curated selection of paintings and drawings. One work at a time." />
+  <link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <div class="brand">
+        <div class="name"><a href="index.html" style="border-bottom:0;">Cole Calfee</a></div>
+        <div class="role">Artist · Writer · Creative Director</div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="about.html">About</a>
+        <a href="writing.html">Writing</a>
+        <a href="art.html" aria-current="page">Art</a>
+        <a href="projects.html">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap main">
+    <h1 class="h1">Art</h1>
+    <p class="kicker">One work at a time</p>
+
+    <div class="prose">
+      <p>The work is slow. It changes quietly.</p>
+      <p>Painting and drawing are treated here as a way of seeing—not illustration, not commentary, not production. The interest is in presence, repetition, and restraint.</p>
+      <p class="quiet">What appears is curated. What is absent is intentional.</p>
+
+      <div class="hr"></div>
+      <p class="small">Add works by placing images in an <code>assets/images/</code> folder, then inserting them here as single blocks (no grids).</p>
+    </div>
+
+    <!-- Example single-work block (copy/paste per piece)
+    <div class="hr"></div>
+    <figure style="margin:0; max-width: 74ch;">
+      <img src="assets/images/work-01.jpg" alt="Title of work" style="width:100%; height:auto; border-radius: var(--r); border: 1px solid var(--hair);" />
+      <figcaption class="prose" style="margin-top:12px;">
+        <p class="small">Title, 2026 · Oil on canvas</p>
+      </figcaption>
+    </figure>
+    -->
+
+    <footer class="footer">
+      <div class="left">
+        <span>© <span id="y"></span> Cole Calfee</span>
+      </div>
+      <div class="right">
+        <a href="projects.html">Projects</a> · <a href="writing.html">Writing</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
