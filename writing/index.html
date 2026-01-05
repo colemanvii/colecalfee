@@ -1,1 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Writing — Cole Calfee</title>
+  <meta name="description" content="Writing by Cole Calfee." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#f6f1e8" />
 
+  <style>
+    :root{
+      --bg:#f6f1e8; --ink:#121212; --muted:rgba(18,18,18,.62); --hair:rgba(18,18,18,.12);
+      --max:66ch;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:var(--bg); color:var(--ink);
+      font:16px/1.65 ui-serif, Georgia, "Times New Roman", Times, serif;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    a{color:inherit;text-decoration:none}
+    a:hover{opacity:.82}
+    .wrap{min-height:100%;display:flex;justify-content:center;padding:42px 20px 64px}
+    main{width:min(1040px,100%)}
+
+    .top{
+      display:flex;align-items:flex-start;justify-content:space-between;gap:20px;
+      padding-bottom:18px;border-bottom:1px solid var(--hair);
+    }
+    .brand{display:flex;flex-direction:column;gap:6px}
+    .name{font:600 18px/1.1 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    .role{
+      font:500 11px/1.3 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+    }
+    .nav{
+      display:flex;gap:18px;flex-wrap:wrap;
+      font:500 11px/1.3 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-top:4px;
+    }
+
+    h1{
+      margin:40px 0 14px;
+      font:650 48px/1.05 ui-serif, Georgia, "Times New Roman", Times, serif;
+      letter-spacing:-.02em;
+    }
+    p{max-width:var(--max);margin:0 0 14px}
+    .muted{color:var(--muted)}
+
+    .list{margin-top:24px;max-width:var(--max)}
+    .list a{display:block;padding:10px 0;border-bottom:1px solid var(--hair)}
+    .list a:last-child{border-bottom:0}
+
+    .foot{
+      margin-top:44px;padding-top:18px;border-top:1px solid var(--hair);
+      display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+      color:var(--muted);
+      font:500 12px/1.4 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+    }
+    .foot-links{display:flex;gap:12px;flex-wrap:wrap}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <main>
+      <header class="top">
+        <div class="brand">
+          <div class="name"><a href="/">Cole Calfee</a></div>
+          <div class="role">Artist · Writer · Creative Director</div>
+        </div>
+        <nav class="nav" aria-label="Primary">
+          <a href="/about/">About</a>
+          <a href="/writing/">Writing</a>
+          <a href="/art/">Art</a>
+          <a href="/projects/">Projects</a>
+        </nav>
+      </header>
+
+      <h1>Writing</h1>
+
+      <p>
+        Essays and notes on art, attention, and modern life.
+      </p>
+
+      <div class="list">
+        <a href="https://substack.com/@colecalfee" target="_blank" rel="noreferrer">
+          Read on Substack →
+        </a>
+      </div>
+
+      <footer class="foot">
+        <div>© <span id="y"></span> Cole Calfee · Based in the American South</div>
+        <div class="foot-links">
+          <a href="mailto:hello@coldcoffee.com">Email</a>
+          <span>·</span>
+          <a href="https://instagram.com/colecalfee" target="_blank" rel="noreferrer">Instagram</a>
+          <span>·</span>
+          <a href="https://substack.com/@colecalfee" target="_blank" rel="noreferrer">Substack</a>
+          <span>·</span>
+          <a href="https://github.com/colecalfee" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
