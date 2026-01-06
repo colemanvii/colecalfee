@@ -5,12 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cole Calfee</title>
 
+  <!-- Canonical + basic SEO -->
+  <link rel="canonical" href="https://colecalfee.com/" />
+  <meta name="description" content="Cole Calfee is an artist and writer based in Tennessee, working across painting, drawing, and film." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cole Calfee" />
+  <meta property="og:description" content="Artist and writer based in Tennessee. Paintings, drawing, and film." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://colecalfee.com/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Cole Calfee" />
+  <meta name="twitter:description" content="Artist and writer based in Tennessee. Paintings, drawing, and film." />
+
+  <!-- Structured data (helps replace weird summaries) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Cole Calfee",
+    "url": "https://colecalfee.com/",
+    "email": "mailto:colecalfee@gmail.com",
+    "sameAs": [
+      "https://festinalentenotes.substack.com/"
+    ],
+    "jobTitle": "Artist and writer",
+    "homeLocation": {
+      "@type": "Place",
+      "name": "Tennessee, USA"
+    }
+  }
+  </script>
+
   <style>
     :root{
       --bg:#f7f3ea;
       --ink:#0b0b0b;
       --hair:rgba(0,0,0,.15);
       --radius:18px;
+      --card:rgba(255,255,255,.35);
+      --muted:rgba(0,0,0,.72);
     }
 
     *{box-sizing:border-box}
@@ -24,7 +61,7 @@
     }
 
     main{
-      height:100%;
+      min-height:100%;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -32,16 +69,17 @@
     }
 
     .card{
-      width:min(680px,100%);
+      width:min(760px,100%);
       border:1px solid var(--hair);
       border-radius:var(--radius);
       padding:32px;
-      background:rgba(255,255,255,.35);
+      background:var(--card);
     }
 
     .top{
       display:flex;
       justify-content:space-between;
+      gap:16px;
       padding-bottom:16px;
       border-bottom:1px solid var(--hair);
       font-size:13px;
@@ -50,17 +88,55 @@
     }
 
     h1{
-      margin:28px 0 18px;
+      margin:28px 0 10px;
       font-size:clamp(30px,5vw,44px);
       letter-spacing:-.03em;
       line-height:1.1;
+    }
+
+    .lead{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.55;
+      max-width:62ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .panel{
+      border:1px solid var(--hair);
+      border-radius:16px;
+      padding:18px;
+      background:rgba(255,255,255,.25);
+    }
+
+    .kicker{
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+      color:var(--muted);
+    }
+
+    .list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:14px;
     }
 
     .actions{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
-      margin-top:8px;
+      margin-top:18px;
     }
 
     a{
@@ -78,15 +154,26 @@
       color:var(--bg);
     }
 
+    a.small{
+      min-width:auto;
+      padding:10px 12px;
+      font-size:13px;
+    }
+
     footer{
-      margin-top:28px;
+      margin-top:24px;
       padding-top:16px;
       border-top:1px solid var(--hair);
       font-size:12px;
       display:flex;
       justify-content:space-between;
+      gap:12px;
+      color:var(--muted);
     }
 
+    @media(max-width:720px){
+      .grid{grid-template-columns:1fr}
+    }
     @media(max-width:520px){
       a{min-width:100%}
     }
@@ -102,22 +189,40 @@
       </div>
 
       <h1>Paintings, film, systems.</h1>
+      <p class="lead">
+        Cole Calfee is an artist and writer based in Tennessee. He works across painting, drawing, and film,
+        with an emphasis on attention, craft, and continuity over time.
+      </p>
 
-      <div class="actions">
-        <a class="primary"
-           href="https://festinalentenotes.substack.com/"
-           target="_blank" rel="noopener">
-          Festina Lente →
-        </a>
+      <div class="grid" aria-label="Site sections">
+        <div class="panel">
+          <p class="kicker">Selected focus</p>
+          <ul class="list">
+            <li>Painting and drawing studies</li>
+            <li>Short-form film and visual storytelling</li>
+            <li>Notes on art, attention, and modern life</li>
+          </ul>
+        </div>
 
-        <a href="mailto:colecalfee@gmail.com">
-          Email →
-        </a>
+        <div class="panel">
+          <p class="kicker">Links</p>
+          <div class="actions" style="margin-top:10px">
+            <a class="primary" href="https://festinalentenotes.substack.com/" target="_blank" rel="noopener">
+              Writing → Substack
+            </a>
+            <a href="mailto:colecalfee@gmail.com">
+              Email →
+            </a>
+            <a class="small" href="https://festinalentenotes.substack.com/about" target="_blank" rel="noopener">
+              About →
+            </a>
+          </div>
+        </div>
       </div>
 
       <footer>
-        <div>© <span id="y"></span></div>
-        <div></div>
+        <div>© <span id="y"></span> Cole Calfee</div>
+        <div>Based in Tennessee</div>
       </footer>
     </section>
   </main>
