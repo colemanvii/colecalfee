@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cole Calfee</title>
 
-  <!-- Canonical + basic SEO -->
+  <!-- Canonical / SEO hygiene -->
   <link rel="canonical" href="https://colecalfee.com/" />
   <meta name="description" content="Cole Calfee is an artist and writer based in Tennessee, working across painting, drawing, and film." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
@@ -16,12 +16,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://colecalfee.com/" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cole Calfee" />
-  <meta name="twitter:description" content="Artist and writer based in Tennessee. Paintings, drawing, and film." />
-
-  <!-- Structured data (helps replace weird summaries) -->
+  <!-- Structured data (boring on purpose) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,14 +24,15 @@
     "name": "Cole Calfee",
     "url": "https://colecalfee.com/",
     "email": "mailto:colecalfee@gmail.com",
-    "sameAs": [
-      "https://festinalentenotes.substack.com/"
-    ],
     "jobTitle": "Artist and writer",
     "homeLocation": {
       "@type": "Place",
       "name": "Tennessee, USA"
-    }
+    },
+    "sameAs": [
+      "https://festinalentenotes.substack.com/",
+      "https://github.com/colemanvii"
+    ]
   }
   </script>
 
@@ -48,10 +44,12 @@
       --radius:18px;
       --card:rgba(255,255,255,.35);
       --muted:rgba(0,0,0,.72);
+      --ember:#c84a1c;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
+
     body{
       margin:0;
       background:var(--bg);
@@ -79,12 +77,33 @@
     .top{
       display:flex;
       justify-content:space-between;
+      align-items:center;
       gap:16px;
       padding-bottom:16px;
       border-bottom:1px solid var(--hair);
       font-size:13px;
       letter-spacing:.12em;
       text-transform:uppercase;
+    }
+
+    .pilot-wrap{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .pilot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--ember);
+      box-shadow:0 0 6px rgba(200,74,28,.6);
+      animation:pulse 9s ease-in-out infinite;
+    }
+
+    @keyframes pulse{
+      0%,100%{opacity:.35}
+      50%{opacity:1}
     }
 
     h1{
@@ -136,7 +155,7 @@
       display:flex;
       gap:12px;
       flex-wrap:wrap;
-      margin-top:18px;
+      margin-top:10px;
     }
 
     a{
@@ -154,12 +173,6 @@
       color:var(--bg);
     }
 
-    a.small{
-      min-width:auto;
-      padding:10px 12px;
-      font-size:13px;
-    }
-
     footer{
       margin-top:24px;
       padding-top:16px;
@@ -174,6 +187,7 @@
     @media(max-width:720px){
       .grid{grid-template-columns:1fr}
     }
+
     @media(max-width:520px){
       a{min-width:100%}
     }
@@ -185,16 +199,19 @@
     <section class="card">
       <div class="top">
         <div>Cole Calfee</div>
-        <div>Festina Lente</div>
+        <div class="pilot-wrap" aria-hidden="true">
+          <span class="pilot"></span>
+        </div>
       </div>
 
       <h1>Paintings, film, systems.</h1>
+
       <p class="lead">
-        Cole Calfee is an artist and writer based in Tennessee. He works across painting, drawing, and film,
-        with an emphasis on attention, craft, and continuity over time.
+        Cole Calfee is an artist and writer based in Tennessee. He works across painting,
+        drawing, and film, with an emphasis on attention, craft, and continuity over time.
       </p>
 
-      <div class="grid" aria-label="Site sections">
+      <div class="grid">
         <div class="panel">
           <p class="kicker">Selected focus</p>
           <ul class="list">
@@ -206,15 +223,15 @@
 
         <div class="panel">
           <p class="kicker">Links</p>
-          <div class="actions" style="margin-top:10px">
+          <div class="actions">
             <a class="primary" href="https://festinalentenotes.substack.com/" target="_blank" rel="noopener">
               Writing → Substack
             </a>
             <a href="mailto:colecalfee@gmail.com">
               Email →
             </a>
-            <a class="small" href="https://festinalentenotes.substack.com/about" target="_blank" rel="noopener">
-              About →
+            <a href="https://github.com/colemanvii" target="_blank" rel="noopener">
+              GitHub →
             </a>
           </div>
         </div>
