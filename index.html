@@ -27,8 +27,7 @@
     "jobTitle":"Artist and writer",
     "homeLocation":{"@type":"Place","name":"Tennessee, USA"},
     "sameAs":[
-      "https://festinalentenotes.substack.com/",
-      "https://github.com/colemanvii"
+      "https://festinalentenotes.substack.com/"
     ]
   }
   </script>
@@ -42,7 +41,7 @@
       --hair:rgba(0,0,0,.15);
       --radius:20px;
 
-      /* calmer ember: less orange, more brick */
+      /* restrained ember */
       --ember:#b94823;
       --emberGlow:rgba(185,72,35,.35);
     }
@@ -95,12 +94,10 @@
       animation: pulse 7s infinite ease-in-out;
     }
 
-    /* evenly distribute the sequence across 7 seconds */
     .signal span:nth-child(1){animation-delay:0s}
     .signal span:nth-child(2){animation-delay:2.333s}
     .signal span:nth-child(3){animation-delay:4.666s}
 
-    /* one dot gently brightens, then returns */
     @keyframes pulse{
       0%   { opacity:.22; box-shadow:none; transform:translateY(0); }
       14%  { opacity:1;   box-shadow:0 0 10px var(--emberGlow); transform:translateY(-.2px); }
@@ -264,8 +261,9 @@
             <a class="primary" href="https://festinalentenotes.substack.com/" target="_blank" rel="noopener">
               Writing → Substack
             </a>
-            <a href="mailto:colecalfee@gmail.com">Email →</a>
-            <a href="https://github.com/colemanvii" target="_blank" rel="noopener">GitHub →</a>
+            <a href="mailto:colecalfee@gmail.com">
+              Email →
+            </a>
           </div>
         </div>
       </div>
