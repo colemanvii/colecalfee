@@ -41,7 +41,6 @@
       --hair:rgba(0,0,0,.15);
       --radius:20px;
 
-      /* restrained ember */
       --ember:#b94823;
       --emberGlow:rgba(185,72,35,.35);
     }
@@ -76,7 +75,6 @@
       position:relative;
     }
 
-    /* three-dot signal */
     .signal{
       position:absolute;
       top:18px;
@@ -91,7 +89,7 @@
       border-radius:50%;
       background:var(--ember);
       opacity:.22;
-      animation: pulse 7s infinite ease-in-out;
+      animation:pulse 7s infinite ease-in-out;
     }
 
     .signal span:nth-child(1){animation-delay:0s}
@@ -99,15 +97,10 @@
     .signal span:nth-child(3){animation-delay:4.666s}
 
     @keyframes pulse{
-      0%   { opacity:.22; box-shadow:none; transform:translateY(0); }
-      14%  { opacity:1;   box-shadow:0 0 10px var(--emberGlow); transform:translateY(-.2px); }
-      32%  { opacity:.22; box-shadow:none; transform:translateY(0); }
-      100% { opacity:.22; box-shadow:none; transform:translateY(0); }
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      .signal span{ animation:none; opacity:.28; }
-      a{ transition:none; }
+      0%{opacity:.22}
+      14%{opacity:1;box-shadow:0 0 10px var(--emberGlow)}
+      32%{opacity:.22}
+      100%{opacity:.22}
     }
 
     .top{
@@ -181,8 +174,7 @@
       border-radius:14px;
       text-align:center;
       background:transparent;
-      transition: transform .08s ease, background .12s ease;
-      user-select:none;
+      transition:transform .08s ease, background .12s ease;
     }
 
     a:hover{
@@ -190,18 +182,9 @@
       transform:translateY(-1px);
     }
 
-    a:active{
-      transform:translateY(0);
-    }
-
     a.primary{
       background:var(--ink);
       color:var(--bg);
-      border-color:rgba(0,0,0,.25);
-    }
-
-    a.primary:hover{
-      background:rgba(0,0,0,.92);
     }
 
     footer{
@@ -209,26 +192,7 @@
       padding-top:16px;
       border-top:1px solid var(--hair);
       font-size:12px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center; /* important for vertical alignment */
       color:rgba(0,0,0,.60);
-      gap:12px;
-    }
-
-    /* Quiet monochrome flag mark (not a “sticker”) */
-    .locale{
-      display:flex;
-      align-items:center;
-      justify-content:flex-end;
-      color:rgba(0,0,0,.45);
-      line-height:1; /* prevents extra boxy height */
-    }
-
-    .locale svg{
-      height:10px;   /* small + typographic */
-      width:auto;
-      display:block;
     }
 
     @media(max-width:720px){
@@ -285,19 +249,7 @@
       </div>
 
       <footer>
-        <div>© <span id="y"></span> Cole Calfee</div>
-
-        <!-- Monochrome USA flag mark (no stars, quiet) -->
-        <div class="locale" aria-label="USA" title="USA">
-          <svg viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-            <rect x="1" y="1" width="34" height="22" rx="2"
-                  fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <rect x="3" y="3" width="14" height="10"
-                  fill="currentColor" opacity="0.12"/>
-            <path d="M3 7H35M3 11H35M3 15H35M3 19H35"
-                  stroke="currentColor" stroke-width="1.5" opacity="0.25"/>
-          </svg>
-        </div>
+        © <span id="y"></span> Cole Calfee
       </footer>
     </section>
   </main>
