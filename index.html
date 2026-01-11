@@ -27,7 +27,8 @@
     "jobTitle":"Artist and writer",
     "homeLocation":{"@type":"Place","name":"Tennessee, USA"},
     "sameAs":[
-      "https://festinalentenotes.substack.com/"
+      "https://festinalentenotes.substack.com/",
+      "https://github.com/colemannvii"
     ]
   }
   </script>
@@ -193,6 +194,83 @@
       border-top:1px solid var(--hair);
       font-size:12px;
       color:rgba(0,0,0,.60);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .footerRow{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .footerLinks{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .footerLinks a,
+    summary.colophonToggle{
+      border:none;
+      padding:0;
+      background:transparent;
+      text-decoration:underline;
+      text-underline-offset:3px;
+      color:rgba(0,0,0,.60);
+      cursor:pointer;
+    }
+
+    .footerLinks a:hover,
+    summary.colophonToggle:hover{
+      color:rgba(0,0,0,.85);
+    }
+
+    details.colophon{
+      border:1px solid var(--hair);
+      border-radius:14px;
+      padding:12px 14px;
+      background:rgba(255,255,255,.20);
+    }
+
+    details.colophon[open]{
+      background:rgba(255,255,255,.30);
+    }
+
+    summary.colophonToggle{
+      list-style:none;
+    }
+
+    summary.colophonToggle::-webkit-details-marker{
+      display:none;
+    }
+
+    .colophonBody{
+      margin-top:10px;
+      color:rgba(0,0,0,.65);
+      line-height:1.6;
+      max-width:78ch;
+    }
+
+    .colophonBody a{
+      border:none;
+      padding:0;
+      border-radius:0;
+      text-align:left;
+      background:transparent;
+      text-decoration:underline;
+      text-underline-offset:3px;
+      color:rgba(0,0,0,.70);
+    }
+
+    .colophonBody a:hover{
+      background:transparent;
+      transform:none;
+      color:rgba(0,0,0,.90);
     }
 
     @media(max-width:720px){
@@ -241,6 +319,11 @@
             <a class="primary" href="https://festinalentenotes.substack.com/" target="_blank" rel="noopener">
               Writing → Substack
             </a>
+
+            <a href="https://github.com/colemannvii" target="_blank" rel="noopener">
+              Open work → GitHub
+            </a>
+
             <a href="mailto:colecalfee@gmail.com">
               Email →
             </a>
@@ -249,7 +332,25 @@
       </div>
 
       <footer>
-        © <span id="y"></span> Cole Calfee
+        <div class="footerRow">
+          <div>© <span id="y"></span> Cole Calfee</div>
+          <div class="footerLinks">
+            <a href="https://github.com/colemannvii" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://festinalentenotes.substack.com/" target="_blank" rel="noopener">Substack</a>
+          </div>
+        </div>
+
+        <details class="colophon">
+          <summary class="colophonToggle">Colophon</summary>
+          <div class="colophonBody">
+            <div>This site is a working surface.</div>
+            <div>Built slowly, maintained intentionally.</div>
+            <div style="margin-top:8px;">
+              Some systems and experiments live in public —
+              <a href="https://github.com/colemannvii" target="_blank" rel="noopener">open work →</a>
+            </div>
+          </div>
+        </details>
       </footer>
     </section>
   </main>
