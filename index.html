@@ -3,360 +3,216 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cole Calfee</title>
-
-  <!-- Canonical / SEO hygiene -->
-  <link rel="canonical" href="https://colecalfee.com/" />
-  <meta name="description" content="Cole Calfee is an artist and writer based in Tennessee, working across painting, drawing, and film." />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Cole Calfee" />
-  <meta property="og:description" content="Artist and writer based in Tennessee. Paintings, drawing, and film." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://colecalfee.com/" />
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Cole Calfee",
-    "url":"https://colecalfee.com/",
-    "email":"mailto:colecalfee@gmail.com",
-    "jobTitle":"Artist and writer",
-    "homeLocation":{"@type":"Place","name":"Tennessee, USA"},
-    "sameAs":[
-      "https://festinalentenotes.substack.com/",
-      "https://github.com/colemannvii"
-    ]
-  }
-  </script>
-
+  <title>Cole Calfee — Paintings, film, systems.</title>
   <style>
     :root{
-      --bg:#f7f3ea;
-      --card:#fbf8f2;
-      --ink:#0b0b0b;
-      --muted:rgba(0,0,0,.70);
-      --hair:rgba(0,0,0,.15);
-      --radius:20px;
-
-      --ember:#b94823;
-      --emberGlow:rgba(185,72,35,.35);
+      --bg:#f3efe7;
+      --paper:#f7f4ee;
+      --ink:#111;
+      --muted:#5a5a5a;
+      --line:#d6d0c6;
+      --shadow: 0 18px 60px rgba(0,0,0,.08);
+      --radius:28px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
-
     *{box-sizing:border-box}
-    html,body{height:100%}
-
     body{
       margin:0;
       background:var(--bg);
       color:var(--ink);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-                   "Liberation Mono","Courier New", monospace;
+      font-family:var(--mono);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
-
-    main{
-      min-height:100%;
+    a{color:inherit; text-decoration:none}
+    .wrap{
+      min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:24px;
+      padding:48px 20px;
     }
-
-    .card{
-      width:min(820px,100%);
-      background:var(--card);
-      border:1px solid var(--hair);
+    .window{
+      width:min(1050px, 100%);
+      background:var(--paper);
+      border:1px solid var(--line);
       border-radius:var(--radius);
-      padding:34px;
+      box-shadow:var(--shadow);
       position:relative;
+      overflow:hidden;
     }
-
-    .signal{
-      position:absolute;
-      top:18px;
-      right:18px;
+    .chrome{
       display:flex;
-      gap:7px;
+      justify-content:flex-end;
+      gap:10px;
+      padding:18px 22px 0;
     }
-
-    .signal span{
-      width:6px;
-      height:6px;
-      border-radius:50%;
-      background:var(--ember);
-      opacity:.22;
-      animation:pulse 7s infinite ease-in-out;
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background:#c9c1b5;
+      opacity:.9;
     }
-
-    .signal span:nth-child(1){animation-delay:0s}
-    .signal span:nth-child(2){animation-delay:2.333s}
-    .signal span:nth-child(3){animation-delay:4.666s}
-
-    @keyframes pulse{
-      0%{opacity:.22}
-      14%{opacity:1;box-shadow:0 0 10px var(--emberGlow)}
-      32%{opacity:.22}
-      100%{opacity:.22}
-    }
-
+    .content{ padding:30px 56px 42px; }
     .top{
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      padding-bottom:16px;
-      border-bottom:1px solid var(--hair);
-      font-size:13px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
+      justify-content:space-between;
+      padding-bottom:14px;
     }
-
+    .name{
+      letter-spacing:.22em;
+      font-size:16px;
+    }
+    .rule{ border-top:1px solid var(--line); margin:10px 0 28px; }
     h1{
-      margin:28px 0 10px;
-      font-size:clamp(34px,5vw,52px);
-      letter-spacing:-.04em;
-      line-height:1.05;
-    }
-
-    .lead{
       margin:0 0 18px;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.65;
-      max-width:66ch;
+      font-size:72px;
+      letter-spacing:-.03em;
+      line-height:1;
     }
-
+    .lede{
+      max-width:720px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.65;
+      margin:0 0 34px;
+    }
     .grid{
       display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:18px;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
       margin-top:18px;
     }
-
-    .panel{
-      border:1px solid var(--hair);
-      border-radius:16px;
-      padding:18px;
-      background:rgba(255,255,255,.25);
+    .box{
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px 24px;
+      background:rgba(255,255,255,.22);
     }
-
-    .kicker{
-      font-size:12px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      margin:0 0 10px;
-      color:rgba(0,0,0,.60);
+    .box h2{
+      margin:0 0 14px;
+      font-size:14px;
+      letter-spacing:.22em;
+      font-weight:600;
+      color:var(--muted);
     }
-
-    .list{
+    ul{
       margin:0;
       padding-left:18px;
+      color:#2a2a2a;
+      line-height:1.8;
+    }
+    .links{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .btn{
+      width:100%;
+      border-radius:16px;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      background:transparent;
+      font-family:var(--mono);
+      font-size:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      cursor:pointer;
+      transition:transform .06s ease, background .12s ease;
+    }
+    .btn:hover{ background:rgba(0,0,0,.03); }
+    .btn:active{ transform:translateY(1px); }
+    .btn.primary{
+      background:var(--ink);
+      color:var(--paper);
+      border-color:var(--ink);
+    }
+    .btn.primary:hover{ background:#000; }
+    .footer-rule{ border-top:1px solid var(--line); margin:34px 0 16px; }
+    footer{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       color:var(--muted);
       font-size:14px;
-      line-height:1.65;
     }
-
-    .actions{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      margin-top:10px;
-    }
-
-    a{
-      text-decoration:none;
-      color:var(--ink);
-      border:1px solid var(--hair);
-      padding:14px 18px;
-      border-radius:14px;
-      text-align:center;
-      background:transparent;
-      transition:transform .08s ease, background .12s ease;
-    }
-
-    a:hover{
-      background:rgba(0,0,0,.03);
-      transform:translateY(-1px);
-    }
-
-    a.primary{
-      background:var(--ink);
-      color:var(--bg);
-    }
-
-    footer{
-      margin-top:24px;
-      padding-top:16px;
-      border-top:1px solid var(--hair);
-      font-size:12px;
-      color:rgba(0,0,0,.60);
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-
-    .footerRow{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .footerLinks{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .footerLinks a,
-    summary.colophonToggle{
-      border:none;
-      padding:0;
-      background:transparent;
+    .foot-links a{
+      color:var(--muted);
       text-decoration:underline;
       text-underline-offset:3px;
-      color:rgba(0,0,0,.60);
-      cursor:pointer;
+      margin-left:14px;
     }
-
-    .footerLinks a:hover,
-    summary.colophonToggle:hover{
-      color:rgba(0,0,0,.85);
-    }
-
-    details.colophon{
-      border:1px solid var(--hair);
-      border-radius:14px;
-      padding:12px 14px;
-      background:rgba(255,255,255,.20);
-    }
-
-    details.colophon[open]{
-      background:rgba(255,255,255,.30);
-    }
-
-    summary.colophonToggle{
-      list-style:none;
-    }
-
-    summary.colophonToggle::-webkit-details-marker{
-      display:none;
-    }
-
-    .colophonBody{
-      margin-top:10px;
-      color:rgba(0,0,0,.65);
-      line-height:1.6;
-      max-width:78ch;
-    }
-
-    .colophonBody a{
-      border:none;
-      padding:0;
-      border-radius:0;
-      text-align:left;
-      background:transparent;
-      text-decoration:underline;
-      text-underline-offset:3px;
-      color:rgba(0,0,0,.70);
-    }
-
-    .colophonBody a:hover{
-      background:transparent;
-      transform:none;
-      color:rgba(0,0,0,.90);
-    }
-
-    @media(max-width:720px){
-      .grid{grid-template-columns:1fr}
-    }
-
-    @media(max-width:520px){
-      main{padding:18px}
-      .card{padding:26px}
+    @media (max-width: 860px){
+      .content{ padding:26px 22px 34px; }
+      h1{ font-size:52px; }
+      .grid{ grid-template-columns:1fr; }
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <section class="card">
-      <div class="signal" aria-hidden="true">
-        <span></span><span></span><span></span>
+  <div class="wrap">
+    <main class="window">
+      <div class="chrome" aria-hidden="true">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
       </div>
 
-      <div class="top">
-        <div>COLE CALFEE</div>
-        <div></div>
-      </div>
-
-      <h1>Paintings, film, systems.</h1>
-
-      <p class="lead">
-        Cole Calfee is an artist and writer based in Tennessee. He works across painting,
-        drawing, and film, with an emphasis on attention, craft, and continuity over time.
-      </p>
-
-      <div class="grid">
-        <div class="panel">
-          <p class="kicker">Selected focus</p>
-          <ul class="list">
-            <li>Painting and drawing studies</li>
-            <li>Short-form film and visual storytelling</li>
-            <li>Notes on art, attention, and modern life</li>
-          </ul>
+      <div class="content">
+        <div class="top">
+          <div class="name">COLE CALFEE</div>
         </div>
 
-        <div class="panel">
-          <p class="kicker">Links</p>
-          <div class="actions">
-            <a class="primary" href="https://festinalentenotes.substack.com/" target="_blank" rel="noopener">
-              Writing → Substack
-            </a>
+        <div class="rule"></div>
 
-            <a href="https://github.com/colemannvii" target="_blank" rel="noopener">
-              Open work → GitHub
-            </a>
+        <h1>Paintings, film, systems.</h1>
 
-            <a href="mailto:colecalfee@gmail.com">
-              Email →
-            </a>
+        <p class="lede">
+          Cole Calfee is an artist and writer based in Tennessee. He works across
+          painting, drawing, and film, with an emphasis on attention, craft, and
+          continuity over time.
+        </p>
+
+        <section class="grid">
+          <div class="box">
+            <h2>SELECTED FOCUS</h2>
+            <ul>
+              <li>Painting and drawing studies</li>
+              <li>Short-form film and visual storytelling</li>
+              <li>Notes on art, attention, and modern life</li>
+            </ul>
           </div>
-        </div>
-      </div>
 
-      <footer>
-        <div class="footerRow">
-          <div>© <span id="y"></span> Cole Calfee</div>
-          <div class="footerLinks">
-            <a href="https://github.com/colemannvii" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://festinalentenotes.substack.com/" target="_blank" rel="noopener">Substack</a>
-          </div>
-        </div>
-
-        <details class="colophon">
-          <summary class="colophonToggle">Colophon</summary>
-          <div class="colophonBody">
-            <div>This site is a working surface.</div>
-            <div>Built slowly, maintained intentionally.</div>
-            <div style="margin-top:8px;">
-              Some systems and experiments live in public —
-              <a href="https://github.com/colemannvii" target="_blank" rel="noopener">open work →</a>
+          <div class="box">
+            <h2>LINKS</h2>
+            <div class="links">
+              <a class="btn primary" href="https://substack.com" target="_blank" rel="noreferrer">
+                Writing → Substack
+              </a>
+              <a class="btn" href="https://github.com" target="_blank" rel="noreferrer">
+                Open work → GitHub
+              </a>
+              <a class="btn" href="mailto:colecalfee@gmail.com">
+                Email →
+              </a>
             </div>
           </div>
-        </details>
-      </footer>
-    </section>
-  </main>
+        </section>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+        <div class="footer-rule"></div>
+
+        <footer>
+          <div>© 2026 Cole Calfee</div>
+          <div class="foot-links">
+            <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://substack.com" target="_blank" rel="noreferrer">Substack</a>
+          </div>
+        </footer>
+
+        <!-- colophon removed -->
+      </div>
+    </main>
+  </div>
 </body>
 </html>
