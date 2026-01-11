@@ -7,11 +7,10 @@
   <style>
     :root{
       --bg:#f2ede4;
-      --panel:#101112;
+      --term:#0e0f10;
       --ink:#e9e7e2;
       --muted:#b2aca2;
-      --line:rgba(233,231,226,.12);
-      --radius:16px;
+      --radius:14px;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     }
     *{box-sizing:border-box}
@@ -21,99 +20,45 @@
       background:var(--bg);
       font-family:var(--mono);
     }
-    a{color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(233,231,226,.25)}
-    a:hover{border-bottom-color:rgba(233,231,226,.55)}
-    .card{
-      width:min(560px, 92vw);
-      background:var(--panel);
+    .term{
+      width:min(620px, 92vw);
+      background:var(--term);
       color:var(--ink);
-      border:1px solid rgba(0,0,0,.25);
       border-radius:var(--radius);
       box-shadow:0 18px 60px rgba(0,0,0,.18);
       padding:18px 18px 16px;
     }
-    .top{
-      display:flex; justify-content:space-between; align-items:center;
-      padding-bottom:10px;
-      border-bottom:1px solid var(--line);
-      margin-bottom:12px;
+    pre{
+      margin:0;
+      white-space:pre-wrap;
+      line-height:1.55;
+      font-size:14px;
     }
-    .label{
-      font-size:12px;
-      letter-spacing:.18em;
-      color:var(--muted);
-      text-transform:uppercase;
-    }
-    .prompt{
-      color:var(--muted);
-      font-size:13px;
-      margin:0 0 10px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .prompt b{color:var(--ink); font-weight:600}
-    .blk{margin:10px 0 0}
-    .line{display:flex; gap:10px; margin:6px 0; align-items:flex-start}
-    .k{width:84px; color:var(--muted)}
-    .v{flex:1}
-    ul{margin:6px 0 0; padding-left:16px; color:var(--ink)}
-    li{margin:3px 0}
-    .hr{height:1px; background:var(--line); margin:14px 0 10px}
-    .foot{
-      display:flex; justify-content:space-between; align-items:center;
-      color:var(--muted); font-size:12px;
-    }
-    .cursor{
-      display:inline-block; width:8px; height:1em;
-      background:rgba(233,231,226,.85);
-      margin-left:6px; transform:translateY(2px);
-      animation:blink 1s steps(1,end) infinite;
-    }
-    @keyframes blink{50%{opacity:0}}
+    .muted{color:var(--muted)}
+    a{color:var(--ink); text-decoration:underline; text-underline-offset:3px}
   </style>
 </head>
 <body>
-  <main class="card">
-    <div class="top">
-      <div class="label">Cole Calfee</div>
-      <div class="label">Briefing</div>
-    </div>
+  <main class="term">
+<pre><span class="muted">cole@calfee:~$</span> briefing --now
 
-    <p class="prompt">cole@calfee:~$ <b>briefing --now</b><span class="cursor" aria-hidden="true"></span></p>
+<span class="muted">NAME</span>   Cole Calfee
+<span class="muted">BASED</span>  Tennessee
+<span class="muted">WORK</span>   Painting, drawing, film
+<span class="muted">AIM</span>    Attention · craft · continuity
 
-    <div class="blk">
-      <div class="line"><div class="k">BASED</div><div class="v">Tennessee</div></div>
-      <div class="line"><div class="k">WORK</div><div class="v">Painting · drawing · film</div></div>
-      <div class="line"><div class="k">AIM</div><div class="v">Attention · craft · continuity</div></div>
+<span class="muted">FOCUS</span>
+  - Painting and drawing studies
+  - Short-form film and visual storytelling
+  - Notes on art, attention, modern life
 
-      <div class="line" style="margin-top:10px">
-        <div class="k">FOCUS</div>
-        <div class="v">
-          <ul>
-            <li>Painting and drawing studies</li>
-            <li>Short-form film and visual storytelling</li>
-            <li>Notes on art, attention, modern life</li>
-          </ul>
-        </div>
-      </div>
+<span class="muted">LINKS</span>
+  - <a href="#">Writing → Substack</a>
+  - <a href="#">Open work → GitHub</a>
+  - <a href="mailto:colecalfee@gmail.com">Email →</a>
 
-      <div class="line" style="margin-top:10px">
-        <div class="k">LINKS</div>
-        <div class="v">
-          <a href="#">Writing → Substack</a><br/>
-          <a href="#">Open work → GitHub</a><br/>
-          <a href="mailto:colecalfee@gmail.com">Email →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="hr"></div>
-
-    <div class="foot">
-      <div>© 2026</div>
-      <div><a href="#">GitHub</a> <span style="opacity:.5">/</span> <a href="#">Substack</a></div>
-    </div>
+<span class="muted">© 2026</span>
+</pre>
   </main>
 </body>
 </html>
