@@ -3,182 +3,224 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cole Calfee — Briefing</title>
+  <title>COLE CALFEE — GATEWAY</title>
   <style>
     :root{
-      --bg:#f2ede4;
-      --panel:#101112;
-      --ink:#e9e7e2;
-      --muted:#b2aca2;
-      --line:rgba(233,231,226,.12);
-      --amber:#ff9f2e;
-      --radius:16px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --bg:#f4f2ee;
+      --ink:#111;
+      --muted:#555;
+      --line:#222;
+      --bar:#000;
+      --paper:#fff;
     }
-    *{box-sizing:border-box}
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      min-height:100vh;
+      background:var(--bg);
+      color:var(--ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      letter-spacing: .2px;
+    }
+
+    .wrap{
+      min-height:100%;
       display:grid;
       place-items:center;
-      background:var(--bg);
-      font-family:var(--mono);
+      padding: clamp(18px, 4vw, 44px);
     }
-    a{
-      color:var(--ink);
+
+    .panel{
+      width: min(980px, 100%);
+      background: var(--paper);
+      border: 2px solid var(--line);
+      box-shadow: 0 0 0 1px rgba(0,0,0,.04);
+    }
+
+    .topbar{
+      height: 36px;
+      background: var(--bar);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 0 14px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .topbar .right{
+      letter-spacing: 2px;
+    }
+
+    .content{
+      padding: clamp(22px, 4vw, 46px);
+    }
+
+    .gateway{
+      margin: 6px 0 26px 0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(44px, 7vw, 86px);
+      letter-spacing: .5px;
+      line-height: 1;
+    }
+
+    .gridbox{
+      border: 2px solid var(--line);
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .cell{
+      padding: 18px 20px;
+      min-height: 86px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap: 8px;
+      position:relative;
+    }
+
+    .cell:nth-child(1),
+    .cell:nth-child(2){ border-bottom: 2px solid var(--line); }
+    .cell:nth-child(1),
+    .cell:nth-child(3){ border-right: 2px solid var(--line); }
+
+    .meta{
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .link{
+      display:inline-flex;
+      align-items:baseline;
+      gap: 10px;
       text-decoration:none;
-      border-bottom:1px solid rgba(233,231,226,.25);
-    }
-    a:hover{border-bottom-color:rgba(233,231,226,.55)}
-
-    .card{
-      width:min(560px, 92vw);
-      background:var(--panel);
-      color:var(--ink);
-      border:1px solid rgba(0,0,0,.25);
-      border-radius:var(--radius);
-      box-shadow:0 18px 60px rgba(0,0,0,.18);
-      padding:16px 18px 14px;
+      color: var(--ink);
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      font-size: 16px;
+      width: fit-content;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
     }
 
-    .top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding-bottom:10px;
-      border-bottom:1px solid var(--line);
-      margin-bottom:12px;
+    .link:focus-visible{
+      outline: 2px solid #000;
+      outline-offset: 4px;
     }
 
-    .label{
-      font-size:12px;
-      letter-spacing:.18em;
-      color:var(--muted);
-      text-transform:uppercase;
+    /* Hover/active: invert the tile slightly, underline the label */
+    .cell:hover{
+      background:#f1efe9;
+    }
+    .cell:hover .link{
+      border-bottom-color: var(--ink);
     }
 
-    .status{
-      display:flex;
-      gap:8px;
-      align-items:center;
+    /* Make entire cell clickable */
+    .cell > a.hit{
+      position:absolute;
+      inset:0;
+      border:0;
+      text-decoration:none;
+      color:inherit;
     }
-    .light{
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:var(--amber);
-      opacity:.25;
-      animation:pulse 4s ease-in-out infinite;
-    }
-    .light:nth-child(2){animation-delay:1.2s}
-    .light:nth-child(3){animation-delay:2.4s}
-
-    @keyframes pulse{
-      0%, 100%{opacity:.25}
-      50%{opacity:.9}
+    .cell > a.hit:focus-visible{
+      outline: 2px solid #000;
+      outline-offset: -2px;
     }
 
-    .blk{margin-top:6px}
-
-    .line{
-      display:flex;
-      gap:10px;
-      margin:6px 0;
-      align-items:flex-start;
-    }
-    .k{
-      width:84px;
-      color:var(--muted);
-    }
-    .v{flex:1}
-
-    ul{
-      margin:6px 0 0;
-      padding-left:16px;
-    }
-    li{margin:3px 0}
-
-    .hr{
-      height:1px;
-      background:var(--line);
-      margin:14px 0 10px;
+    /* Responsive: stack into one column on small screens */
+    @media (max-width: 640px){
+      .gridbox{
+        grid-template-columns: 1fr;
+      }
+      .cell:nth-child(1),
+      .cell:nth-child(2),
+      .cell:nth-child(3){
+        border-right: none;
+      }
+      .cell:nth-child(1),
+      .cell:nth-child(2),
+      .cell:nth-child(3){
+        border-bottom: 2px solid var(--line);
+      }
+      .cell:nth-child(4){
+        border-bottom: none;
+      }
     }
 
-    .foot{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      color:var(--muted);
-      font-size:12px;
+    /* Optional subtle “terminal” cursor vibe on READY_ */
+    .cursor{
+      display:inline-block;
+      width: 8px;
+      height: 12px;
+      background:#fff;
+      margin-left:6px;
+      transform: translateY(2px);
+      animation: blink 1s steps(1,end) infinite;
+      opacity:.9;
     }
-
-    .timestamp{
-      opacity:.7;
-    }
+    @keyframes blink{ 50%{ opacity:0; } }
   </style>
 </head>
 
 <body>
-  <main class="card">
-    <div class="top">
-      <div class="label">Cole Calfee</div>
-      <div class="status" aria-hidden="true">
-        <span class="light"></span>
-        <span class="light"></span>
-        <span class="light"></span>
+  <main class="wrap">
+    <section class="panel" aria-label="Cole Calfee Gateway">
+      <div class="topbar">
+        <div>COLE CALFEE OS v1.0</div>
+        <div class="right">READY_<span class="cursor" aria-hidden="true"></span></div>
       </div>
-    </div>
 
-    <div class="blk">
-      <div class="line"><div class="k">BASED</div><div class="v">Tennessee</div></div>
-      <div class="line"><div class="k">WORK</div><div class="v">Painting · drawing · film</div></div>
-      <div class="line"><div class="k">AIM</div><div class="v">Attention · craft · continuity</div></div>
+      <div class="content">
+        <h1 class="gateway">GATEWAY</h1>
 
-      <div class="line" style="margin-top:10px">
-        <div class="k">FOCUS</div>
-        <div class="v">
-          <ul>
-            <li>Painting and drawing studies</li>
-            <li>Short-form film and visual storytelling</li>
-            <li>Notes on art, attention, modern life</li>
-          </ul>
+        <div class="gridbox" role="navigation" aria-label="Primary links">
+          <!-- 01 -->
+          <div class="cell">
+            <a class="hit" href="/haven" aria-label="Go to Haven"></a>
+            <div class="meta">01 // STRUCTURE</div>
+            <a class="link" href="/haven">HAVEN</a>
+          </div>
+
+          <!-- 02 -->
+          <div class="cell">
+            <a class="hit" href="/tangerine" aria-label="Go to Tangerine"></a>
+            <div class="meta">02 // STUDIO</div>
+            <a class="link" href="/tangerine">TANGERINE</a>
+          </div>
+
+          <!-- 03 -->
+          <div class="cell">
+            <a class="hit" href="/westover" aria-label="Go to Westover"></a>
+            <div class="meta">03 // PLACE</div>
+            <a class="link" href="/westover">WESTOVER</a>
+          </div>
+
+          <!-- 04 -->
+          <div class="cell">
+            <a class="hit" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="Go to GitHub"></a>
+            <div class="meta">04 // CODE</div>
+            <a class="link" href="https://github.com/" target="_blank" rel="noreferrer">GITHUB</a>
+          </div>
         </div>
       </div>
-
-      <div class="line" style="margin-top:10px">
-        <div class="k">LINKS</div>
-        <div class="v">
-          <a href="https://substack.com/@colemanvii" target="_blank" rel="noopener noreferrer">
-            Writing → Substack
-          </a><br/>
-          <a href="https://github.com/colemanvii" target="_blank" rel="noopener noreferrer">
-            Open work → GitHub
-          </a><br/>
-          <a href="mailto:colecalfee@gmail.com">
-            Email →
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="hr"></div>
-
-    <div class="foot">
-      <div>© 2026</div>
-      <div class="timestamp" id="timestamp"></div>
-    </div>
+    </section>
   </main>
 
-  <script>
-    const el = document.getElementById('timestamp');
-    const now = new Date();
-    el.textContent = now.toLocaleString(undefined, {
-      hour: 'numeric',
-      minute: '2-digit',
-      hour12: true,
-      month: 'short',
-      day: 'numeric'
-    });
-  </script>
+  <!--
+    NOTES:
+    - Update these hrefs to your real destinations:
+      /haven, /tangerine, /westover, and your GitHub profile URL.
+  -->
 </body>
 </html>
